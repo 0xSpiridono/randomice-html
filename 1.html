@@ -34,7 +34,6 @@
             #button:active {
                 transform: scale(2.5);
             }
-
             .flip-container {
             perspective: 1000px;
             }
@@ -71,6 +70,8 @@
     </head>
 
     <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <div id='buttonContainer' style='left: 14px; top: 16px; display: block;'>
             <button id='button'><img id='buttonImage' src='https://ipfs.io/ipfs/QmW6rvzk8QoHuZxkrt86BQTH9jJoQ6RVs6xfmWUi35nFQF' style='left: 0px; top: 0px;'></button>
         </div>
@@ -91,8 +92,5 @@
                 $(".flip-container").toggleClass('hover');
             });
         </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     </body>
 </html>
