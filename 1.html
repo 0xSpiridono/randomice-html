@@ -44,8 +44,9 @@
             .flip-container,
             .front,
             .back {
-            width: 1000px;
-            height: 1000px;
+            width: 100%;
+            height: auto;
+            position: absolute;
             }
             .flipper {
             transition: 0.6s;
@@ -79,10 +80,10 @@
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
               <div class="front">
-                <img src="https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png" alt="Avatar" style="width:1000px;height: 1000px;">
+                <img src="https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png" alt="Avatar" style="width: 100%; height: auto;">
               </div>
               <div class="back">
-                <img src="https://ipfs.io/ipfs/QmYB1gm3Ee2PVbsrBQV7EeA5Y8NLrrP28no2UVrGJg8NZp/1.png" alt="Avatar" style="width:1000px;height: 1000px;">
+                <img src="https://ipfs.io/ipfs/QmYB1gm3Ee2PVbsrBQV7EeA5Y8NLrrP28no2UVrGJg8NZp/1.png" alt="Avatar" style="width: 100%; height: auto;">
               </div>
             </div>
         </div>
