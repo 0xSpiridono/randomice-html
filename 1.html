@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head><meta http-equiv='Content-Type' content='text/html; charset=windows-1252'><style>
+    <head><meta http-equiv='Content-Type' content='text/html; charset=windows-1252'>
+    <style>
             html,
             body {
                 margin: 0;
@@ -33,26 +34,65 @@
             #button:active {
                 transform: scale(2.5);
             }
-            #Image {
-                position: absolute;
-                width: 100%;
-                height: auto;
+
+            .flip-container {
+            perspective: 1000px;
             }
-        </style>
+
+            .flip-container.hover .flipper {
+            transform: rotateY(180deg);
+            }
+            .flip-container,
+            .front,
+            .back {
+            width: 1000px;
+            height: 1000px;
+            }
+            .flipper {
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            }
+            .front,
+            .back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            }
+            .front {
+            z-index: 2;
+            transform: rotateY(0deg);
+            }
+            .back {
+            transform: rotateY(180deg);
+            }
+    </style>
     </head>
+
     <body>
         <div id='buttonContainer' style='left: 14px; top: 16px; display: block;'>
-            <button id='button' onclick='changeImg()'><img id='buttonImage' src='https://ipfs.io/ipfs/QmW6rvzk8QoHuZxkrt86BQTH9jJoQ6RVs6xfmWUi35nFQF' style='left: 0px; top: 0px;'></button>
-        </div><img id='Image' src='https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png' style='left: 0px; top: 0px;'>
-        <script type='text/javascript'>
-            function changeImg() {
-                var image = document.getElementById('Image');
-                if (image.src.match('https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png')) {
-                    image.src = 'https://ipfs.io/ipfs/QmYB1gm3Ee2PVbsrBQV7EeA5Y8NLrrP28no2UVrGJg8NZp/1.png';
-                } else {
-                    image.src = 'https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png';
-                }
-            }
+            <button id='button'><img id='buttonImage' src='https://ipfs.io/ipfs/QmW6rvzk8QoHuZxkrt86BQTH9jJoQ6RVs6xfmWUi35nFQF' style='left: 0px; top: 0px;'></button>
+        </div>
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+              <div class="front">
+                <img src="https://ipfs.io/ipfs/QmT4ozUFisQN3JxoFfFpRzEPW2sV5Bw8b5BRoc9VLD8Xpi/1.png" alt="Avatar" style="width:1000px;height: 1000px;">
+              </div>
+              <div class="back">
+                <img src="https://ipfs.io/ipfs/QmYB1gm3Ee2PVbsrBQV7EeA5Y8NLrrP28no2UVrGJg8NZp/1.png" alt="Avatar" style="width:1000px;height: 1000px;">
+              </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).on("click", "#button", function () {
+                $(".flip-container").toggleClass('hover');
+            });
         </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     </body>
 </html>
